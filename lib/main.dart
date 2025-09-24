@@ -27,16 +27,16 @@ class _CounterWidgetState extends State<CounterWidget> {
   //set counter value
   int _counter = 0;
 
-    //set rocket color
-    Color DisplayColor(){
-      if (_counter == 0) {
-        return Colors.red;
-      } else if (_counter > 50) {
-        return Colors.green;
-      } else {
-        return Colors.orange;
-      }
+  //set rocket color
+  Color DisplayColor() {
+    if (_counter == 0) {
+      return Colors.red;
+    } else if (_counter > 50) {
+      return Colors.green;
+    } else {
+      return Colors.orange;
     }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,12 +52,11 @@ class _CounterWidgetState extends State<CounterWidget> {
               child: Text(
                 _counter == 100 ? 'LIFTOFF!' : '$_counter',
                 style: TextStyle(
-                fontSize: 50.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+                  fontSize: 50.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
-                ),
-
+              ),
             ),
           ),
           Slider(
@@ -82,17 +81,17 @@ class _CounterWidgetState extends State<CounterWidget> {
               });
             },
             child: Text('Ignite'),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  if (_counter != 0) {
-                    _counter--;
-                  }
-                });
-              },
-              child: Text('Decrement'),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                if (_counter != 0) {
+                  _counter--;
+                }
+              });
+            },
+            child: Text('Decrement'),
           ),
           const SizedBox(height: 20),
           ElevatedButton(
@@ -102,7 +101,7 @@ class _CounterWidgetState extends State<CounterWidget> {
               });
             },
             child: Text('Reset'),
-          )
+          ),
         ],
       ),
     );
