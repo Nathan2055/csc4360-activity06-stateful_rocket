@@ -27,6 +27,17 @@ class _CounterWidgetState extends State<CounterWidget> {
   //set counter value
   int _counter = 0;
 
+    //set rocket color
+    Color DisplayColor(){
+      if (_counter == 0) {
+        return Colors.red;
+      } else if (_counter > 50) {
+        return Colors.green;
+      } else {
+        return Colors.orange;
+      }
+    }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,12 +48,16 @@ class _CounterWidgetState extends State<CounterWidget> {
         children: [
           Center(
             child: Container(
-              color: Colors.blue,
+              color: DisplayColor(),
               child: Text(
-                //to displays current number
-                '$_counter',
-                style: TextStyle(fontSize: 50.0),
-              ),
+                _counter == 100 ? 'LIFTOFF!' : '$_counter',
+                style: TextStyle(
+                fontSize: 50.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                ),
+                ),
+
             ),
           ),
           Slider(
