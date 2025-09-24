@@ -57,6 +57,37 @@ class _CounterWidgetState extends State<CounterWidget> {
             activeColor: Colors.blue,
             inactiveColor: Colors.red,
           ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                if (_counter < 100) {
+                  _counter++;
+                }
+              });
+            },
+            child: Text('Ignite'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  if (_counter != 0) {
+                    _counter--;
+                  }
+                });
+              },
+              child: Text('Decrement'),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                _counter = 0;
+              });
+            },
+            child: Text('Reset'),
+          )
         ],
       ),
     );
