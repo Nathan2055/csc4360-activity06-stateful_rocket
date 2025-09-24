@@ -38,6 +38,29 @@ class _CounterWidgetState extends State<CounterWidget> {
     }
   }
 
+  void IgniteButtonLogic(BuildContext context) {
+    if (_counter < 100) {
+      setState(() {
+        _counter++;
+      });
+    }
+    if (_counter == 100) {
+      showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: const Text('IGNITION!!!'),
+          content: const Text('We have liftoff! Congratulations!'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,13 +96,7 @@ class _CounterWidgetState extends State<CounterWidget> {
           ),
           const SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () {
-              setState(() {
-                if (_counter < 100) {
-                  _counter++;
-                }
-              });
-            },
+            onPressed: () => IgniteButtonLogic(context),
             child: Text('Ignite'),
           ),
           const SizedBox(height: 20),
